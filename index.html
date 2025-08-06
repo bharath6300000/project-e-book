@@ -7,12 +7,12 @@
   <h2>Buy Test Product - ₹100</h2>
   <button id="payBtn">Pay Now</button>
 
-  <script src="https://razorpay.me/@ebooks7014?amount=EPec5evqGoRk2C8icWNJlQ%3D%3D/v1/checkout.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js></script>
   <script>
     document.getElementById('payBtn').onclick = function (e) {
       var options = {
         key: "rzp_test_YHtBWPdUAndxTt", // ✅ Your test Key ID
-        amount: "10000", // = ₹100.00 (in paisa)
+        amount: "100", // = ₹100.00 (in paisa)
         currency: "INR",
         name: "Your Company Name",
         description: "Test Transaction",
