@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #FFD700;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  max-width: 90%;
+}
+
+.sparkle {
+  font-size: 2.2rem;
+  text-shadow: 0 0 10px #FFD700, 0 0 20px #FF8C00;
+  animation: shine 2s infinite alternate;
+}
+
+.subtext {
+  margin: 15px 0;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+#payButton {
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  border: none;
+  color: #000;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#payButton:hover {
+  transform: scale(1.05);
+}
+
+@keyframes shine {
+  from {
+    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFA500;
+  }
+  to {
+    text-shadow: 0 0 20px #FFD700, 0 0 30px #FF4500;
+  }
+}
