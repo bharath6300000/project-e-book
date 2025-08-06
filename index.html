@@ -1,39 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Razorpay Payment Test</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buy Now - Exclusive Access</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <h2>Buy Test Product - ₹100</h2>
-  <button id="payBtn">Pay Now</button>
+  <div class="container">
+    <h1 class="sparkle">🔥 Unlock Premium Content 🔥</h1>
+    <p class="subtext">Pay ₹49 and get instant access to download.</p>
+    <button id="payButton">Pay ₹49</button>
+  </div>
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script>
-    document.getElementById('payBtn').onclick = function (e) {
-      var options = {
-        key: "rzp_test_YHtBWPdUAndxTt", // ✅ Your test Key ID
-        amount: "100", // = ₹100.00 (in paisa)
-        currency: "INR",
-        name: "Your Company Name",
-        description: "Test Transaction",
-        image: "https://yourdomain.com/logo.png", // optional
-        handler: function (response) {
-          alert("Payment successful!\nPayment ID: " + response.razorpay_payment_id);
-          window.location.href = "success.html"; // ✅ Redirect on success
-        },
-        prefill: {
-          name: "Test User",
-          email: "test@example.com",
-          contact: "9999999999"
-        },
-        theme: {
-          color: "#3399cc"
-        }
-      };
-      var rzp = new Razorpay(options);
-      rzp.open();
-      e.preventDefault();
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
