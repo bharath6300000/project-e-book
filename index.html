@@ -3,17 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buy Now - Exclusive Access</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>🔥 Savitha Akka - Tamil Comics</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #330011;
+      font-family: 'Poppins', sans-serif;
+      color: #ffd6d6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sparkle {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFD700;
+      text-shadow: 0 0 10px #ff69b4, 0 0 25px #ff1493;
+      animation: shine 2s infinite alternate;
+      margin-bottom: 10px;
+    }
+
+    .subtext {
+      font-size: 1rem;
+      color: #ffe4e1;
+      margin-bottom: 20px;
+    }
+
+    @keyframes shine {
+      from { text-shadow: 0 0 10px #ff69b4; }
+      to { text-shadow: 0 0 25px #ff1493; }
+    }
+
+    #payButton {
+      background: linear-gradient(135deg, #FFD700, #ff1493);
+      border: none;
+      color: #000;
+      padding: 14px 28px;
+      font-size: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      font-weight: 700;
+      box-shadow: 0 0 15px #ff69b4;
+      margin-top: 20px;
+    }
+
+    #payButton:hover {
+      transform: scale(1.07);
+    }
+
+    /* Slider Section */
+    .slider-wrapper {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+    }
+
+    .slider-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider-wrapper img {
+      width: 100%;
+      max-width: 430px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .sparkle { font-size: 1.6rem; }
+      .subtext { font-size: 0.9rem; }
+      #payButton { font-size: 0.95rem; padding: 12px 24px; }
+    }
+  </style>
 </head>
 <body>
+
   <div class="container">
-    <h1 class="sparkle">🔥 Unlock Premium Content 🔥</h1>
-    <p class="subtext">Pay ₹49 and get instant access to download.</p>
-    <button id="payButton">Pay ₹49</button>
+    <h1 class="sparkle">🔥 Savitha Akka - Tamil Comics 🔥</h1>
+    <p class="subtext">Read hot Tamil stories FREE. Pay ₹49 to unlock full access!</p>
+
+    <!-- Slider -->
+    <div class="slider-wrapper" id="slider">
+      <img src="Frame 90.png" alt="Comic Page 1">
+      <img src="Frame 90.png" alt="Comic Page 2">
+      <img src="Frame 90.png" alt="Comic Page 3">
+      <img src="Frame 90.png" alt="Comic Page 4">
+    </div>
+
+    <button id="payButton">💖 Pay ₹49 & Access 🔥</button>
   </div>
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script src="script.js"></script>
+  <!-- Razorpay -->
+ <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  document.getElementById("payButton").onclick = function (e) {
+    var options = {
+      key: "rzp_test_YHtBWPdUAndxTt",
+      amount: 4900,
+      currency: "INR",
+      name: "Savitha Comics",
+      description: "Premium Content Access",
+      image: "https://yourdomain.com/logo.png",
+      handler: function (response) {
+        window.location.href = "success.html";
+      },
+      theme: {
+        color: "#ff1493"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+    e.preventDefault();
+  };
+
+  // ✅ Auto Slide Every 6 Seconds
+  let scrollIndex = 0;
+  const slider = document.getElementById("slider");
+  const images = slider.querySelectorAll("img");
+  const total = images.length;
+
+  setInterval(() => {
+    scrollIndex = (scrollIndex + 1) % total;
+    slider.scrollTo({
+      left: images[scrollIndex].offsetLeft,
+      behavior: 'smooth'
+    });
+  }, 6000);
+</script>
+
+
 </body>
 </html>
