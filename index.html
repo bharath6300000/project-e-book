@@ -112,43 +112,25 @@
     <button id="payButton">💖 Pay ₹49 & Access 🔥</button>
   </div>
 
-  <!-- Razorpay -->
- <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-  document.getElementById("payButton").onclick = function (e) {
-    var options = {
-      key: "rzp_test_YHtBWPdUAndxTt",
-      amount: 4900,
-      currency: "INR",
-      name: "Savitha Comics",
-      description: "Premium Content Access",
-      image: "https://yourdomain.com/logo.png",
-      handler: function (response) {
-        window.location.href = "success.html";
-      },
-      theme: {
-        color: "#ff1493"
-      }
-    };
-    var rzp1 = new Razorpay(options);
-    rzp1.open();
-    e.preventDefault();
-  };
-
-  // ✅ Auto Slide Every 6 Seconds
-  let scrollIndex = 0;
-  const slider = document.getElementById("slider");
-  const images = slider.querySelectorAll("img");
-  const total = images.length;
-
-  setInterval(() => {
-    scrollIndex = (scrollIndex + 1) % total;
-    slider.scrollTo({
-      left: images[scrollIndex].offsetLeft,
-      behavior: 'smooth'
+ <script>
+    document.getElementById("payButton").addEventListener("click", function () {
+      window.open("https://rzp.io/rzp/JcBry7p", "_blank");
     });
-  }, 6000);
-</script>
+
+    // ✅ Auto Slide Every 6 Seconds
+    let scrollIndex = 0;
+    const slider = document.getElementById("slider");
+    const images = slider.querySelectorAll("img");
+    const total = images.length;
+
+    setInterval(() => {
+      scrollIndex = (scrollIndex + 1) % total;
+      slider.scrollTo({
+        left: images[scrollIndex].offsetLeft,
+        behavior: 'smooth'
+      });
+    }, 6000);
+  </script>
 
 
 </body>
